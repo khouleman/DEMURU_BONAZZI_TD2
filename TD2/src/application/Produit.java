@@ -1,4 +1,4 @@
-package POJO;
+package application;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,7 +49,7 @@ public class Produit extends Connexion {
 		}
 	}
 	
-	public static void listProduct() {		
+	public static void afficheProduit() {		
 		try {
 			Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();

@@ -1,4 +1,4 @@
-package POJO;
+package application;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -72,7 +72,7 @@ import java.util.ArrayList;
  			} 	
  	}
    
-    public static void listCategory() {		
+    public static void afficheCateg() {		
 		try {
 			Connection laConnexion = creeConnexion();
 			Statement requete = laConnexion.createStatement();

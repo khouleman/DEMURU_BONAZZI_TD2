@@ -1,4 +1,4 @@
-+package POJO;
+package application;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,7 +46,7 @@ public class Client {
 	}
 	
 	
-	public static void listClient() {		
+	public static void afficheClient() {		
 		try {
 			Connection laConnexion = Connexion.creeConnexion();
 			Statement requete = laConnexion.createStatement();
