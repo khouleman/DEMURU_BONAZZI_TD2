@@ -1,21 +1,20 @@
 package dao;
 
+
 public abstract class DAOFactory {
 
-	public enum Peristance{MYSQL, ListMemoire}
+	public enum Persistance{MYSQL, ListeMemoire}
 
 	
-	public static DAOFactory getDAOFactory(Peristance cible) {
+	public static DAOFactory getDAOFactory(Persistance cible) {
 		DAOFactory daoF = null;
-		
-		switch(cible) {
+		switch (cible) {
 		case MYSQL:
-			daoF = new MySQLDAOFactory();
-			break;
-		case ListMemoire:
-			daoF = new ListeMemoireDAOFactory();
-			break;
-		
+		daoF = new MySQLDAOFactory();
+		break;
+		case  ListeMemoire:
+		daoF = new ListeMemoireDAOFactory();
+		break;
 		}
 		
 		return daoF;

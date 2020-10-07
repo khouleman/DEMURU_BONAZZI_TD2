@@ -79,5 +79,43 @@ public class Produit extends Connexion {
 			System.out.println("Pb select :" + sqle.getMessage());
 		}
 	}
+	public static String corrigerReel(String newValue) {
+    	
+	    newValue = newValue.replaceAll(",", ".");
+	    	
+	    	if(newValue.contains(".")) {
+	    		if(newValue.matches("[+-]?\\d+(?:\\.\\d+)?")) {
+	    			return newValue;
+	    		}
+	    		
+	    		
+	    		String[] nombre = newValue.split("\\.", 2);
+	    		
+	    		
+	    		
+	    		if(nombre[0].matches("\\d*") && nombre[1].matches("\\d*")) {
+	    			return newValue;
+	    		}
+
+	    		
+	    		nombre[0] = nombre[0].replaceAll("\\.", "");
+	    		nombre[0] = (nombre[0].replaceAll("[^\\d]", ""));
+	    		
+	    		nombre[1] = nombre[1].replaceAll("\\.", "");
+	    		nombre[1] = (nombre[1].replaceAll("[^\\d]", ""));
+	    		
+	    		String str = nombre[0] + "." + nombre[1];
+	    		return str;
+	    		
+	    		
+	    		
+	    	}else if (!newValue.matches("\\d*")) {
+	    		return newValue.replaceAll("[^\\d]", "");
+	        }
+	    	
+	    	return newValue;
+	    	
+	    	
+	    }
 }
 

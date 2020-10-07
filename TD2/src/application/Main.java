@@ -1,33 +1,30 @@
 package application;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-
-
 import metier.MCategorie;
 import metier.MClient;
 import metier.MCommande;
 import metier.MLigneCommande;
 import metier.MProduit;
 import dao.DAOFactory;
-import dao.DAOFactory.Peristance;
+import dao.DAOFactory.Persistance;
 
-
-public class test {
+public class Main {
 	public static void main(String[] args) {
 
 		Scanner scanner=new Scanner(System.in);
-		System.out.println("Passer de MySQL à ListeMemoire?  1:yes 2:no");
+		System.out.println("Passer de MySQL a ListeMemoire?  1:yes 2:no");
 		int option=scanner.nextInt();
 		if(option==1) {
-			DAOFactory.getDAOFactory(Peristance.ListMemoire);
+			DAOFactory.getDAOFactory(Persistance.ListeMemoire);
 		}
 		else if(option==2) {
-			DAOFactory daos =DAOFactory.getDAOFactory(Peristance.MYSQL);
+			DAOFactory daos =DAOFactory.getDAOFactory(Persistance.MYSQL);
 		System.out.println("choisir une partie");
-		System.out.println("1:Catégorie 2: Produit 3: Client 4: Commande 5: Ligne de commande");
+		System.out.println("1: Categorie 2: Produit 3: Client 4: Commande 5: Ligne de commande");
 		int partie = scanner.nextInt();
+		
 		
 // categorie
 		if (partie==1) {
@@ -76,8 +73,15 @@ public class test {
 		}
 			else if(p==4){
 				System.out.println("Chercher");
-				Categorie.afficheCateg();
-				}
+				System.out.println("id_categorie=");
+				int id=scanner.nextInt();	
+				try {
+					daos.getCategorieDAO().getById(id);	;
+				} catch (Exception e) {
+					System.out.println("cette categorie n'existe pas");
+					e.printStackTrace();
+				}		
+			}
 			else{
 				System.out.println("invalide");
 			}
@@ -143,7 +147,14 @@ public class test {
 			}
 			else if(p==4) {
 				System.out.println("Chercher");
-				Produit.afficheProduit();
+				System.out.println("id_produit=");
+				int id=scanner.nextInt();	
+				try {
+					daos.getProduitDAO().getById(id);	;
+				} catch (Exception e) {
+					System.out.println("ce produit n'existe pas");
+					e.printStackTrace();
+				}		
 			}
 			else 
 			{
@@ -225,9 +236,16 @@ public class test {
 					e.printStackTrace();
 				}
 			}
-			else if(p==4)
-			{
-				Client.afficheClient();
+			else if(p==4) {
+				System.out.println("Chercher");
+				System.out.println("id_client=");
+				int id=scanner.nextInt();	
+				try {
+					daos.getClientDAO().getById(id);	;
+				} catch (Exception e) {
+					System.out.println("ce client n'existe pas");
+					e.printStackTrace();
+				}		
 			}
 			else {
 				System.out.println("invalide");
@@ -289,12 +307,9 @@ public class test {
 				try {
 					daos.getCommandeDAOO().getById(id);	;
 				} catch (Exception e) {
-					System.out.println("ce commande n'exist pas!");
+					System.out.println("cette commande n'existe pas");
 					e.printStackTrace();
-				}
-				
-				
-				
+				}		
 				}
 			else{
 				System.out.println("invalide");
@@ -355,8 +370,16 @@ public class test {
 			}
 			else if(p==4) {
 				System.out.println("Chercher");
-				LigneCommande.afficheLigneCommande();
-			}
+				System.out.println("id_commande=");
+				int id=scanner.nextInt();	
+				try {
+					daos.getLigneCommandeDAO().getById(id);	;
+				} catch (Exception e) {
+					System.out.println("cette ligne commande n'existe pas");
+					e.printStackTrace();
+				}
+				
+				}
 			else 
 			{
 				System.out.println("invalide");

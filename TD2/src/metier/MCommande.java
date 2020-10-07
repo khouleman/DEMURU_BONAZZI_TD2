@@ -15,19 +15,19 @@ public MCommande(LocalDate dateCommande,int idClient) {
 }
 	public MCommande(int idCommande,Date dateCommande,int idClient) {
 		this.setId(idCommande);
-		this.setdateCommande1(dateCommande);
-		this.setidClient(idClient);
+		this.setDateCommande1(dateCommande);
+		this.setIdClient(idClient);
 	}
 	
 	public MCommande(int idCommande,String dateCommande,int idClient) {
 		this.setId(idCommande);
-		this.setdateCommande2(dateCommande);
-		this.setidClient(idClient);
+		this.setDateCommande2(dateCommande);
+		this.setIdClient(idClient);
 	}
 	public MCommande(int idCommande,LocalDate dateCommande,int idClient) {
 		this.setId(idCommande);
-		this.setdateCommande3(dateCommande);
-		this.setidClient(idClient);
+		this.setDateCommande3(dateCommande);
+		this.setIdClient(idClient);
 	}
 
 	public MCommande(int id) {
@@ -41,25 +41,25 @@ public MCommande(LocalDate dateCommande,int idClient) {
 		this.idCommande = idCommande;
 	}
 
-	public int getidClient() {
+	public int getIdClient() {
 		return idClient;
 	}
 
-	public void setidClient(int idClient) {
+	public void setIdClient(int idClient) {
 		this.idClient = idClient;
 	}
 
-	public Date getdateCommande() {
+	public Date getDateCommande() {
 		return dateCommande;
 	}
 
-	public void setdateCommande1(Date dateCommande) {
+	public void setDateCommande1(Date dateCommande) {
 		this.dateCommande = dateCommande;
 	}
-	public void setdateCommande2(String dateCommande) {
+	public void setDateCommande2(String dateCommande) {
 		this.dateCommande = java.sql.Date.valueOf(dateCommande);
 	}
-	public void setdateCommande3(LocalDate dateCommande) {
+	public void setDateCommande3(LocalDate dateCommande) {
 		this.dateCommande = java.sql.Date.valueOf(dateCommande);
 	}
 
